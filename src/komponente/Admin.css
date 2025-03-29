@@ -1,0 +1,58 @@
+ /* .arrow-button {
+    display: inline-block;
+    background: white; 
+    color: #0e66c9; 
+     font-weight: bold;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    position: relative;
+    text-transform: uppercase;
+    margin-top: 20px;
+    
+  }   */
+  
+
+
+  .arrow-button {
+    /* display: inline-block; */
+      display:flex;
+    background: white; /* Boja dugmeta */
+    color: #0e66c9; /* Boja teksta */
+    font-weight: bold;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    position: absolute;
+     /* left: 20px; /* Odmak od leve ivice dokumenta */
+      /* top: 60px;   */ 
+    text-transform: uppercase;
+    /* margin-top: 20px;  */
+  
+   width: 270px;
+   height: 62px;
+   text-align: center; /* Poravnanje teksta u dugmetu */
+  cursor: pointer;
+ 
+   
+
+   
+}
+
+  .arrow-button::after {
+    content: "";
+    position: absolute;
+   
+    top: 50%; /* Strelica kreće sa gornje ivice */
+   
+     right:-30px; 
+    transform: translateY(-50%); 
+    border-style: solid;
+    border-width: 30px 0 30px 30px; /* Oblik strelice */
+    border-color: transparent transparent transparent white;
+ 
+
+  }
+ 
+
+  

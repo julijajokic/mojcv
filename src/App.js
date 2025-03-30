@@ -1,8 +1,12 @@
+import axios from "axios";
 import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
 import './App.css';
 import Admin from "../src/komponente/Admin";
 import LoginPage from "../src/komponente/LoginPage";
 import RegisterPage from "../src/komponente/RegisterPage";
+const axiosInstance = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+});
 function App() {
  
   return (

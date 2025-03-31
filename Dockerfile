@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Instaliramo Node.js zavisnosti
-RUN npm install
+RUN npm install -g npm@latest
 
 # Kopiramo ostatak aplikacije
 COPY . .

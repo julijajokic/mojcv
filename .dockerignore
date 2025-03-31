@@ -23,6 +23,7 @@ bootstrap/cache
 
 *.log
 *.lock
+!composer.lock
 *.swp
 
  

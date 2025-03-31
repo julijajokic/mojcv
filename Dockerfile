@@ -5,7 +5,9 @@ WORKDIR /usr/src/app
 
 # Kopiramo package fajlove i instaliramo zavisnosti
 COPY package*.json ./
-RUN npm install --legacy-peer-deps --production
+# RUN npm install --legacy-peer-deps --production
+RUN npm install --legacy-peer-deps --production --no-audit --prefer-offline
+
 
 # Kopiramo ceo frontend kod i gradimo aplikaciju
 COPY src/ ./src

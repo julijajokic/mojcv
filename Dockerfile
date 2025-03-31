@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 
 # Kopiramo package fajlove i instaliramo zavisnosti
 COPY package*.json ./
-RUN npm install --legacy-peer-deps
+RUN npm install --legacy-peer-deps --production
 
 # Kopiramo ceo frontend kod i gradimo aplikaciju
 COPY src/ ./src
@@ -21,12 +21,18 @@ RUN apt-get update && apt-get install -y \
     curl \
     git \
     unzip \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    zip \
     && rm -rf /var/lib/apt/lists/*
 
 # Instaliramo Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /usr/src/app/api
+
+# Kopiramo composer fajlove i instaliramo zavisnosti
 COPY api/composer.json api/composer.lock ./
 RUN composer install --no-dev --optimize-autoloader
 
@@ -45,7 +51,15 @@ COPY --from=php_builder /usr/src/app/api /usr/src/app/api
 
 WORKDIR /usr/src/app/api
 
-# Pokrećemo Laravel server
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=${PORT}"]
+# Postavljanje permisija za Laravel direktorijume
+RUN chmod -R 775 /usr/src/app/api/storage /usr/src/app/api/bootstrap/cache
+
+# Postavljanje permisija za Laravel artisan fajl
+RUN chmod +x /usr/src/app/api/artisan
+
+# Pokrećemo Laravel server i React frontend
+CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=9000 & npm start"]
+
+
 
 

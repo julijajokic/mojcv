@@ -5,9 +5,7 @@ WORKDIR /usr/src/app
 
 # Kopiramo package fajlove i instaliramo zavisnosti
 COPY package*.json ./
-# RUN npm install --legacy-peer-deps --production
-RUN npm install --legacy-peer-deps --production --no-audit --prefer-offline
-
+RUN npm install --legacy-peer-deps --omit=dev
 
 # Kopiramo ceo frontend kod i gradimo aplikaciju
 COPY src/ ./src
@@ -43,24 +41,28 @@ RUN composer install --no-dev --optimize-autoloader
 # 3. Finalni kontejner za Laravel i React
 FROM php:8.2-cli
 
-WORKDIR /usr/src/app
+# Instalacija Node.js unutar PHP kontejnera (potrebno ako koristiš frontend u istom kontejneru)
+RUN apt-get update && apt-get install -y nodejs npm
 
-# Kopiramo frontend build
-COPY --from=node_builder /usr/src/app/src/build /usr/src/app/src/build
+WORKDIR /usr/src/app
 
 # Kopiramo backend (Laravel)
 COPY --from=php_builder /usr/src/app/api /usr/src/app/api
 
+# Kopiramo frontend build u Laravel `public/` folder da bi Laravel mogao da servira React
+COPY --from=node_builder /usr/src/app/src/build /usr/src/app/api/public
+
 WORKDIR /usr/src/app/api
 
 # Postavljanje permisija za Laravel direktorijume
-RUN chmod -R 775 /usr/src/app/api/storage /usr/src/app/api/bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache
 
 # Postavljanje permisija za Laravel artisan fajl
-RUN chmod +x /usr/src/app/api/artisan
+RUN chmod +x artisan
 
-# Pokrećemo Laravel server i React frontend
-CMD ["sh", "-c", "php artisan serve --host=0.0.0.0 --port=9000 & npm start"]
+# Pokrećemo Laravel server
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=9000"]
+
 
 
 

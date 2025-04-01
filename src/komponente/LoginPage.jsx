@@ -27,7 +27,8 @@ function LoginPage() {
 
                
         axios
-        .post("http://127.0.0.1:8000/api/login", userData )
+        .post("http://mojcv-production-d9c2.up.railway.app/api/login", userData )
+       
         .then((res)=>{  
             console.log(res.data);
             if(res.data.status===200){

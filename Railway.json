@@ -1,0 +1,21 @@
+{
+    "build": {
+      "api": {
+        "builder": "nixpacks",
+        "buildCommand": "composer install --no-dev --optimize-autoloader && php artisan migrate --force"
+      },
+      "frontend": {
+        "builder": "nixpacks",
+        "buildCommand": "npm install --legacy-peer-deps && npm run build"
+      }
+    },
+    "deploy": {
+      "api": {
+        "startCommand": "php artisan serve --host=0.0.0.0 --port=$PORT"
+      },
+      "frontend": {
+        "startCommand": "npx serve -s build -l 3000"
+      }
+    }
+  }
+  

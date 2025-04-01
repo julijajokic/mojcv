@@ -2,7 +2,7 @@
   "build": {
     "api": {
       "builder": "nixpacks",
-      "buildCommand": "composer install --no-dev --optimize-autoloader --working-dir=/api"
+      "buildCommand": "composer install --no-dev --optimize-autoloader --working-dir=api"
     },
     "/": {
       "builder": "nixpacks",
@@ -11,8 +11,8 @@
   },
   "deploy": {
     "api": {
-      "startCommand": "php artisan serve --host=0.0.0.0 --port=$PORT --working-dir=/api",
-      "postDeployCommand": "php artisan migrate --force --working-dir=/api && php artisan key:generate --working-dir=/api"
+      "startCommand": "php artisan serve --host=0.0.0.0 --port=$PORT --working-dir=api",
+      "postDeployCommand": "php artisan migrate --force --working-dir=api && php artisan key:generate --working-dir=api"
     },
     "/": {
       "startCommand": "npx serve -s build -l 3000"

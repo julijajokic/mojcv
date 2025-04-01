@@ -45,7 +45,7 @@ function LoginPage() {
                 // {
                 //     window.sessionStorage.setItem("auth_name","Admin");
 
-                  navigate("/admin")
+                  navigate("https://mojcv-production-d9c2.up.railway.app/admin")
                 // }
                 // else{
                 //     navigate("/");  
@@ -86,7 +86,7 @@ function LoginPage() {
                                     <button className="btn btn--pill btn--green" type="submit" id="login" name="login">Submit</button>
                                 </div>
                                 <br/><br/>
-                                <p><a href="/register"  className='tekstForme'>I am new here!</a></p>
+                                <p><a href="https://mojcv-production-d9c2.up.railway.app/register"  className='tekstForme'>I am new here!</a></p>
                         </form>
                     </div>
                 </div>

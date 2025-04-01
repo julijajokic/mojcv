@@ -28,7 +28,7 @@ function Admin() {
           console.log(response);
          
         alert("Uspesno ste se izlogovali");
-          navigate('https://mojcv-production-d9c2.up.railway.app/');
+          navigate('/');
        
     
         })

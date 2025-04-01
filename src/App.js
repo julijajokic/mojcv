@@ -19,10 +19,10 @@ function App() {
 
         <Routes>   
           
-          <Route   path="https://mojcv-production-d9c2.up.railway.app/"  element={<LoginPage  />}/>
-          <Route   path="https://mojcv-production-d9c2.up.railway.app/register" element={<RegisterPage />}/>
+          <Route   path="/"  element={<LoginPage  />}/>
+          <Route   path="/register" element={<RegisterPage />}/>
 
-          <Route   path="https://mojcv-production-d9c2.up.railway.app/admin"  element={<Admin/>}/>
+          <Route   path="/admin"  element={<Admin/>}/>
        
           
             

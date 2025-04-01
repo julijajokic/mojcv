@@ -129,7 +129,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
+        Str::slug(env('APP_NAME', 'disciplined-beauty'), '_').'_session'
     ),
 
     /*
@@ -143,7 +143,7 @@ return [
     |
     */
 
-    'path' => env('SESSION_PATH', '/'),
+    'path' => env('SESSION_PATH', 'https://mojcv-production-d9c2.up.railway.app/'),
 
     /*
     |--------------------------------------------------------------------------

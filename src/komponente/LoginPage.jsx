@@ -45,7 +45,7 @@ function LoginPage() {
                 // {
                 //     window.sessionStorage.setItem("auth_name","Admin");
 
-                  navigate("https://mojcv-production-d9c2.up.railway.app/admin")
+                  navigate("/admin")
                 // }
                 // else{
                 //     navigate("/");  

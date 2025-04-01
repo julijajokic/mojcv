@@ -4,11 +4,11 @@ FROM node:20 AS node_builder
 WORKDIR /usr/src/app
 
 # Kopiramo package fajlove i instaliramo zavisnosti
-COPY src/package.json src/package-lock.json ./
+COPY /package.json /package-lock.json ./
 RUN npm install --legacy-peer-deps --omit=dev
 
 # Kopiramo ceo frontend kod i gradimo aplikaciju
-COPY src/ ./src
+COPY src ./src
 RUN npm run build
 
 # --------------------------------------------------------------

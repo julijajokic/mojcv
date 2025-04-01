@@ -24,6 +24,8 @@ bootstrap/cache
 *.log
 *.lock
 !composer.lock
+!package.json
+!pacakge-lock.json
 *.swp
 
  

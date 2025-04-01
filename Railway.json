@@ -1,17 +1,26 @@
-{
+{.
+
     "build": {
       "api": {
         "builder": "nixpacks",
-        "buildCommand": "nix-env -iA nixpkgs.nodejs_18 && npm install --legacy-peer-deps && npm run build && composer install --no-dev --optimize-autoloader"
+        "buildCommand": "composer install --working-dir=api --no-dev --optimize-autoloader"
+      },
+      "frontend": {
+        "builder": "nixpacks",
+        "buildCommand": "nix-env -iA nixpkgs.nodejs_18 && npm install --legacy-peer-deps && npm run build"
       }
     },
     "deploy": {
       "api": {
-        "startCommand": "php artisan serve --host=0.0.0.0 --port=$PORT",
-        "postDeployCommand": "php artisan migrate --force"
+        "startCommand": "php artisan serve --host=0.0.0.0 --port=$PORT --working-dir=api",
+        "postDeployCommand": "php artisan migrate --force --working-dir=api && php artisan key:generate --working-dir=api"
+      },
+      "frontend": {
+        "startCommand": "npx serve -s build -l 3000"
       }
     }
   }
+  
   
   
       

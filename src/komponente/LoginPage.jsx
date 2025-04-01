@@ -27,7 +27,7 @@ function LoginPage() {
 
                
         axios
-        .post("http://mojcv-production-d9c2.up.railway.app/api/login", userData )
+        .post("https://mojcv-production-d9c2.up.railway.app/api/login", userData )
        
         .then((res)=>{  
             console.log(res.data);

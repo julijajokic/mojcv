@@ -1,0 +1,3 @@
+*.php linguist-detectable=true
+*.blade.php linguist-detectable=false
+

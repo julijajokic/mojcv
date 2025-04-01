@@ -15,7 +15,7 @@
       "postDeployCommand": "php artisan migrate --force --working-dir=api && php artisan key:generate --working-dir=api"
     },
     "/": {
-      "startCommand": "npx serve -s build -l 9000"
+      "startCommand": "npx serve -s build -l $PORT"
     }
   }
 }

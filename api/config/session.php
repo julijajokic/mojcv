@@ -143,7 +143,7 @@ return [
     |
     */
 
-    'path' => env('SESSION_PATH', 'https://mojcv-production-d9c2.up.railway.app/'),
+    'path' => env('SESSION_PATH', '/'),
 
     /*
     |--------------------------------------------------------------------------

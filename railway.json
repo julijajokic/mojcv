@@ -6,7 +6,7 @@
     },
     "/": {
       "builder": "nixpacks",
-      "buildCommand": "npm install && npm run build"
+      "buildCommand": "nix-env -iA nixpkgs.nodejs_18 && npm install --legacy-peer-deps && npm install axios react-router-dom && npm run build"
     }
   },
   "deploy": {
@@ -19,6 +19,7 @@
     }
   }
 }
+
 
 
 

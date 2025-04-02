@@ -10,9 +10,7 @@ function Admin() {
     const ArrowButton = ({ text ,customStyle}) =>{
         return<div className="arrow-button" style={{...customStyle}}>{text}</div>
     }
-    const ArrowButton1 = ({ text }) =>{
-        return<div className="arrow-button1">{text}</div>
-    }
+  
     function handleLogout(){ 
    
      

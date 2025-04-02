@@ -16,7 +16,7 @@ function Admin() {
      
         var config = {
           method: 'post',
-          url: 'https://mojcv-production-d9c2.up.railway.app/api/logout',
+          url: 'https://https://mojcv-production-8561.up.railway.app/api/logout',
          
         };
       

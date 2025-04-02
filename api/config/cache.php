@@ -64,7 +64,7 @@ return [
             ],
             'servers' => [
                 [
-                    'host' => env('MEMCACHED_HOST', 'mojcv-production-d9c2.up.railway.app'),
+                    'host' => env('MEMCACHED_HOST', ''),
                     'port' => env('MEMCACHED_PORT', 11211),
                     'weight' => 100,
                 ],
@@ -103,6 +103,6 @@ return [
     |
     */
 
-    'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'disciplined-beauty')).'_cache_'),
+    'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'eloquent-simplicity')).'_cache_'),
 
 ];

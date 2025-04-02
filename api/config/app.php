@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://mojcv-production-d9c2.up.railway.app'),
+    'url' => env('APP_URL', 'https://mojcv-production-8561.up.railway.app/'),
 
     /*
     |--------------------------------------------------------------------------

@@ -41,12 +41,11 @@ return [
             'journal_mode' => null,
             'synchronous' => null,
         ],
-
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),
-            'host' => env('DB_HOST', '') ,
-            'port' => env('DB_PORT', ''),
+            'host' => env('DB_HOST', ''), // Railway host
+            'port' => env('DB_PORT', ''), // Default MySQL port
             'database' => env('DB_DATABASE', ''),
             'username' => env('DB_USERNAME', ''),
             'password' => env('DB_PASSWORD', ''),
@@ -61,6 +60,7 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
+        
 
         'mariadb' => [
             'driver' => 'mariadb',

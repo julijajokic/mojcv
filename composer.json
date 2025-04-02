@@ -1,5 +1,14 @@
 {
     "require": {
-        "laravel/ui": "^4.6"
+      "laravel/ui": "^4.6"
+    },
+    "config": {
+      "platform": {
+        "php": "8.3"
+      }
     }
-}
+    
+  }
+  
+      
+

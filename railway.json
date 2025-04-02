@@ -17,8 +17,14 @@
     "/": {
       "startCommand": "npx serve -s build -l $PORT"
     }
+  },
+  "config": {
+    "platform": {
+      "php": "8.3"
+    }
   }
 }
+
 
 
 

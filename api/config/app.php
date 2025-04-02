@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'disciplined-beauty'),
+    'name' => env('APP_NAME', 'eloquent-simplicity'),
 
     /*
     |--------------------------------------------------------------------------

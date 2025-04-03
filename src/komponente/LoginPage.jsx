@@ -30,8 +30,8 @@ function LoginPage() {
         .post("https://mojcv-production-8561.up.railway.app/api/login", userData )
        
         .then((res)=>{  
-            console.log(res.data);
-            if(res.data.status===200){
+            // console.log(res.data);
+            // if(res.data.status===200){
             
                
               
@@ -53,9 +53,9 @@ function LoginPage() {
 
 
 
-            }else{
-                alert("NEUSPESNO");
-            }
+            // }else{
+            //     alert("NEUSPESNO");
+            // }
         });
 
     }

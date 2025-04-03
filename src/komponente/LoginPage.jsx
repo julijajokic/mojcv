@@ -30,8 +30,8 @@ function LoginPage() {
         .post("https://mojcv-production-8561.up.railway.app/api/login", userData )
        
         .then((res)=>{  
-            // console.log(res.data);
-            // if(res.data.status===200){
+             console.log(res.data);
+            if(res.data.status===200){
             
                
               
@@ -46,19 +46,22 @@ function LoginPage() {
                 //     window.sessionStorage.setItem("auth_name","Admin");
 
                   navigate("/admin")
-                // }
+                }
                 // else{
                 //     navigate("/");  
                 // }
+          
 
 
-
-            // }else{
-            //     alert("NEUSPESNO");
-            // }
-        });
-
+            else{
+                alert("NEUSPESNO");
+            }
+        }); 
+        
     }
+
+
+    
   return (
         <div className='login'>
             <div className="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">

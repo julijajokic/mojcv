@@ -86,7 +86,7 @@ function LoginPage() {
                                     <button className="btn btn--pill btn--green" type="submit" id="login" name="login">Submit</button>
                                 </div>
                                 <br/><br/>
-                                <p><a href="https://mojcv-production-8561.up.railway.app/api/register"  className='tekstForme'>I am new here!</a></p>
+                                <p><a href="/register"  className='tekstForme'>I am new here!</a></p>
                         </form>
                     </div>
                 </div>

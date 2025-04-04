@@ -44,11 +44,11 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),
-            'host' => env('DB_HOST', ''), // Railway host
-            'port' => env('DB_PORT', ''), // Default MySQL port
-            'database' => env('DB_DATABASE', ''),
-            'username' => env('DB_USERNAME', ''),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => env('DB_HOST', 'crossover.proxy.rlwy.net'), // Railway host
+            'port' => env('DB_PORT', '35641'), // Default MySQL port
+            'database' => env('DB_DATABASE', 'railway'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', 'tQVoZIIkPBsBDIVmMHmUeCKFdCfJflKw'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => env('DB_CHARSET', 'utf8mb4'),
             'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),

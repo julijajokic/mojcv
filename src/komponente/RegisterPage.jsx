@@ -28,7 +28,7 @@ function RegisterPage() {
              
           var config = {
                 method: 'post',
-                url: 'http://0.0.0.0:8080//api/register',
+                url: 'http://0.0.0.0:8080/api/register',
                
               };  
           

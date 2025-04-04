@@ -1,4 +1,4 @@
-{{
+{
   "build": {
     "api": {
       "builder": "nixpacks",
@@ -24,6 +24,7 @@
     }
   }
 }
+
 
 
 

@@ -1,5 +1,4 @@
-{
-
+{{
   "build": {
     "api": {
       "builder": "nixpacks",
@@ -13,7 +12,7 @@
   "deploy": {
     "api": {
       "startCommand": "php-fpm -D && nginx -g 'daemon off;'",
-      "postDeployCommand": "php artisan migrate --force --working-dir=api && php artisan key:generate --working-dir=api"
+      "postDeployCommand": "php artisan config:cache && php artisan config:clear && php artisan migrate --force --working-dir=api && php artisan key:generate --working-dir=api"
     },
     "/": {
       "startCommand": "npx serve -s build -l $PORT"
@@ -25,6 +24,7 @@
     }
   }
 }
+
 
 
 

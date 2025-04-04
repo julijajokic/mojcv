@@ -1,74 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './RegisterPageStyle.css';
-import {useState} from "react";
-import { useHistory } from "react-router-dom";
-import axios from "axios";
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+
 function LoginPage() {
-
-
-    
-    const [userData,setUserData]=useState({
-        name:"",
-        email:""
+    const [userData, setUserData] = useState({
+        name: "",
+        email: "",
     });
-    function handleInput(e){  
-    
-        let newUserData = userData;  
-        newUserData[e.target.name]=e.target.value;
-        console.log(newUserData)
-        setUserData(newUserData); 
+
+    // Funkcija za ažuriranje stanja na osnovu unosa
+    function handleInput(e) {
+        setUserData({
+            ...userData,
+            [e.target.name]: e.target.value,
+        });
     }
+
     let navigate = useNavigate();
-    function handleLogin(e){
-      
-        e.preventDefault();   
 
+    // Funkcija za slanje login podataka
+    function handleLogin(e) {
+        e.preventDefault();  
 
-               
-        var config = {
-            method: 'post',
-            url: 'http://0.0.0.0:8080/api/login',
-           
-          };
-          axios(config)
-          .then(function (response) {
-       
-        
-            console.log("API odgovor:", response);
-             console.log(response.data);
-            if(response.data.status===200){
-            
-               
-              
-                // window.sessionStorage.setItem("auth_id",res.data.user.id);
-              
-                // window.sessionStorage.setItem("auth_token",res.data.access_token);
-                // window.sessionStorage.setItem("auth_name",res.data.user.name);
-              
-                console.log(response.data);
-                // if(res.data.role === 'admin')
-                // {
-                //     window.sessionStorage.setItem("auth_name","Admin");
+        const data = {
+            name: userData.name,
+            email: userData.email,
+        };
 
-                  navigate("/admin")
+        // Axios POST zahtev za login
+        axios.post('/api/login', data)
+            .then(function (response) {
+                console.log("API odgovor:", response);
+                if (response.data.status === 200) {
+                    // Možeš da sačuvaš podatke o korisniku, ako je potrebno (npr. auth_token)
+                    console.log(response.data);
+
+                    
+                        navigate("/"); // Preusmeri na početnu stranu
+                    
+                } else {
+                    alert("Login neuspešan");
                 }
-                // else{
-                //     navigate("/");  
-                // }
-          
-
-
-            else{
-                alert("NEUSPESNO");
-            }
-        }); 
-        
+            })
+            .catch(function (error) {
+                console.log("Greška:", error);
+                alert("Desila se greška prilikom logovanja");
+            });
     }
 
-
-    
-  return (
+    return (
         <div className='login'>
             <div className="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
                 <div className="wrapper wrapper--w780">
@@ -76,33 +57,40 @@ function LoginPage() {
                         <div className="card-heading"></div>
                         <div className="card-body">
                             <h2 className="title">Log in</h2>
-                            <form onSubmit={handleLogin} >                          
-                                                      
+                            <form onSubmit={handleLogin}>                          
                                 <div className="input-group">
                                     <input 
                                         className="input--style-3" 
-                                        type="name" 
+                                        type="text" // Ispravljeno: koristi "text" umesto "name"
                                         placeholder="Name" 
                                         name="name"
-                                        onInput={handleInput}
+                                        value={userData.name} // Kontrolisano polje
+                                        onChange={handleInput} 
                                     />
                                 </div>
                                 
                                 <div className="input-group">
-                                    <input className="input--style-3" type="email" placeholder="Email" name="email"  onInput={handleInput}/>
+                                    <input 
+                                        className="input--style-3" 
+                                        type="email" 
+                                        placeholder="Email" 
+                                        name="email" 
+                                        value={userData.email} // Kontrolisano polje
+                                        onChange={handleInput} 
+                                    />
                                 </div>
+
                                 <div className="p-t-10">
                                     <button className="btn btn--pill btn--green" type="submit" id="login" name="login">Submit</button>
                                 </div>
-                                <br/><br/>
-                                <p><a href="/register"  className='tekstForme'>I am new here!</a></p>
-                        </form>
+                                <br /><br />
+                                <p><a href="/register" className='tekstForme'>I am new here!</a></p>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-            </div>
-        
     );
 }
 

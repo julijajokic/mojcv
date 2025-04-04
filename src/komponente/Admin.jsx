@@ -13,14 +13,10 @@ function Admin() {
   
     function handleLogout(){ 
    
-     
-        var config = {
-          method: 'post',
-          url: 'https://mojcv-production-8561.up.railway.app/api/logout',
-         
-        };
+        axios.post('/api/logout', data)
+        
       
-        axios(config)
+      
         .then(function (response) {
          
           console.log(response);

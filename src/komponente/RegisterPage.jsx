@@ -26,7 +26,11 @@ function RegisterPage() {
              
             e.preventDefault();   
             axios
-                .post("https://mojcv-production-8561.up.railway.app/api/register", userData )
+                .post("https://mojcv-production-8561.up.railway.app/api/register", userData, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
                 .then((res)=>{  
                     console.log(res.data);
                   

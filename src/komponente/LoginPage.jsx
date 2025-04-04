@@ -27,7 +27,11 @@ function LoginPage() {
 
                
         axios
-        .post("https://mojcv-production-8561.up.railway.app/api/login", userData )
+        .post("https://mojcv-production-8561.up.railway.app/api/login", userData ,{
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
        
         .then((res)=>{  
              console.log(res.data);

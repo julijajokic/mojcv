@@ -26,7 +26,7 @@ function RegisterPage() {
              
             e.preventDefault();   
             axios
-                .post("http://0.0.0.0:8080/api/register", userData, {
+                .post("https://mojcv-production-8561.up.railway.app/api/register", userData, {
                 headers: {
                     "Content-Type": "application/json"
                 }

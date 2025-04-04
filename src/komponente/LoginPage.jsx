@@ -28,7 +28,7 @@ function LoginPage() {
                
         var config = {
             method: 'post',
-            url: 'https://mojcv-production-8561.up.railway.app/api/login',
+            url: 'http://0.0.0.0:8080/api/login',
            
           };
           axios(config)

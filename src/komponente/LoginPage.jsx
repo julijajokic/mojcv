@@ -26,14 +26,15 @@ function LoginPage() {
 
 
                
-        axios
-        .post("https://mojcv-production-8561.up.railway.app/api/login", userData ,{
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
+        var config = {
+            method: 'post',
+            url: 'https://mojcv-production-8561.up.railway.app/api/login',
+           
+          };
+          axios(config)
+          .then(function (response) {
        
-        .then((res)=>{  
+        
             console.log("API odgovor:", res);
              console.log(res.data);
             if(res.data.status===200){

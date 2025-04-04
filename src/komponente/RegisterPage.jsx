@@ -24,14 +24,16 @@ function RegisterPage() {
     let navigate = useNavigate();
     function handleRegister(e){
              
-            e.preventDefault();   
-            axios
-                .post("https://mojcv-production-8561.up.railway.app/api/register", userData, {
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-                .then((res)=>{  
+        e.preventDefault();  
+             
+          var config = {
+                method: 'post',
+                url: 'https://mojcv-production-8561.up.railway.app/api/login',
+               
+              };  
+          
+              axios(config)
+              .then(function (response) {  
                     console.log(res.data);
                   
                      navigate("/");

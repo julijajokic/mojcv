@@ -1,8 +1,11 @@
-# Prvo, uzimamo PHP baznu sliku
+# Koristimo PHP baznu sliku sa PHP-FPM
 FROM php:8.3-fpm
 
-# Instaliramo Nginx i potrebne biblioteke
-RUN apt-get update && apt-get install -y nginx
+# Ažuriramo paketne izvore i instaliramo Nginx, curl i druge potrebne biblioteke
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y nginx curl && \
+    apt-get clean
 
 # Kopiramo Laravel i React aplikacije u kontejner
 COPY ./api /var/www/api
@@ -24,3 +27,4 @@ EXPOSE 8080
 
 # Pokrećemo PHP-FPM i Nginx zajedno
 CMD php-fpm -D && nginx -g 'daemon off;'
+'

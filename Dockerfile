@@ -26,5 +26,7 @@ RUN mkdir -p /var/www && chown -R www-data:www-data /var/www
 EXPOSE 8080
 
 # Pokrećemo PHP-FPM i Nginx zajedno
-CMD php-fpm -D && nginx -g 'daemon off;'
-'
+# Pokrećemo PHP-FPM i Nginx zajedno
+CMD php-fpm -D && nginx -g "daemon off;"
+
+

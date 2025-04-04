@@ -34,6 +34,7 @@ function LoginPage() {
     })
        
         .then((res)=>{  
+            console.log("API odgovor:", res);
              console.log(res.data);
             if(res.data.status===200){
             

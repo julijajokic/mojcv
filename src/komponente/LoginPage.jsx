@@ -35,9 +35,9 @@ function LoginPage() {
           .then(function (response) {
        
         
-            console.log("API odgovor:", res);
-             console.log(res.data);
-            if(res.data.status===200){
+            console.log("API odgovor:", response);
+             console.log(response.data);
+            if(response.data.status===200){
             
                
               
@@ -46,7 +46,7 @@ function LoginPage() {
                 // window.sessionStorage.setItem("auth_token",res.data.access_token);
                 // window.sessionStorage.setItem("auth_name",res.data.user.name);
               
-                console.log(res.data);
+                console.log(response.data);
                 // if(res.data.role === 'admin')
                 // {
                 //     window.sessionStorage.setItem("auth_name","Admin");

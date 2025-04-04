@@ -28,13 +28,13 @@ function RegisterPage() {
              
           var config = {
                 method: 'post',
-                url: 'https://mojcv-production-8561.up.railway.app/api/login',
+                url: 'https://mojcv-production-8561.up.railway.app/api/register',
                
               };  
           
               axios(config)
               .then(function (response) {  
-                    console.log(res.data);
+                    console.log(response.data);
                   
                      navigate("/");
                 })

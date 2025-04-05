@@ -5,7 +5,7 @@ import Admin from "./komponente/Admin";
 import LoginPage from "./komponente/LoginPage";
 import RegisterPage from "./komponente/RegisterPage";
 const axiosInstance = axios.create({
-  baseURL:import.meta.env.VITE_API_URL,
+  baseURL:import.meta.env.VITE_APP_URL,
 });
 function App() {
  

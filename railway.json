@@ -13,7 +13,7 @@
     "api": {
       "builder": "nixpacks",
       "buildCommand": "composer install --no-dev --optimize-autoloader --working-dir=api",
-      "startCommand": "php api/artisan serve --host=0.0.0.0 --port=9000",
+       "startCommand":  "php -S 0.0.0.0:8080 -t public",
       "postDeployCommand": "php artisan key:generate --working-dir=api && php artisan migrate --force --working-dir=api && php artisan config:cache --working-dir=api"
     }
     

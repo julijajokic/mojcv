@@ -30,7 +30,7 @@ function LoginPage() {
         };
 
         try {
-            const response = await axios.post("https://0.0.0.0:8080/api/login", data);
+            const response = await axios.post("http://localhost:8080/api/login", data);
 
             if (response.status === 200) {
                 console.log("API odgovor:", response);

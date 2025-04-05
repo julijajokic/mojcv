@@ -9,7 +9,7 @@ function LoginPage() {
         email: "",  // Dodano polje za lozinku
     });
 
-    
+
     function handleInput(e) {
         setUserData({
             ...userData,
@@ -27,7 +27,7 @@ function LoginPage() {
             email: userData.email, // Poslati lozinku
         };
 
-        axios.post(`${import.meta.env.VITE_API_URL}/login`, data)
+        axios.post(`${import.meta.env.VITE_APP_URL}/login`, data)
             .then(function (response) {
                 console.log("API odgovor:", response);
                 if (response.data.token) { // Proveri da li je token prisutan

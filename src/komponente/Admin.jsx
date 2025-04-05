@@ -14,7 +14,7 @@ function Admin() {
   
     function handleLogout(){ 
    
-        axios.post(`${import.meta.env.VITE_API_URL}/logout`)
+        axios.post(`${import.meta.env.APP_URL}/logout`)
         
       
       

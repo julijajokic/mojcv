@@ -30,15 +30,14 @@ function LoginPage() {
         axios.post("=https://mojcv-production-8561.up.railway.app/api/login", data)
             .then(function (response) {
                 console.log("API odgovor:", response);
-                if (response.data.token) { // Proveri da li je token prisutan
+                // Proveri da li je token prisutan
                     // Sačuvaj token
                     // localStorage.setItem('auth_token', response.data.token);
 
                     // Preusmeri korisnika
                     navigate("/admin");
-                } else {
-                    alert("Login neuspešan");
-                }
+               
+                
             })
             .catch(function (error) {
                 console.log("Greška:", error);

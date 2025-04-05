@@ -14,7 +14,7 @@ function Admin() {
   
     function handleLogout(){ 
    
-        axios.post('http://0.0.0.0:8080/api/logout')
+        axios.post('https://0.0.0.0:8080/api/logout')
         
       
       

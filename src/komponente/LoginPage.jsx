@@ -29,7 +29,7 @@ function LoginPage() {
 
         axios.post("https://mojcv-production-8561.up.railway.app/api/login", data)
             .then(function (response) {
-                if(response.data.status===200){
+                if(response.status===200){
                 console.log("API odgovor:", response);
                 // Proveri da li je token prisutan
                     // Sačuvaj token

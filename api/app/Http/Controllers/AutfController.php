@@ -21,9 +21,9 @@ class AutfController extends Controller
         
         ]);
     
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 400);
-        }
+        // if ($validator->fails()) {
+        //     return response()->json(['errors' => $validator->errors()], 400);
+        // }
     
         $user = new User([
             'name' => $request->name,

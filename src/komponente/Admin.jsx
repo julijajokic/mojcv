@@ -14,7 +14,7 @@ function Admin() {
   
     function handleLogout(){ 
    
-        axios.post('https://mojcv-production-8561.up.railway.app/api/logout')
+        axiosInstance.post("/api/login", data)
         
       
       

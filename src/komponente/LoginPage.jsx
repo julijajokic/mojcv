@@ -30,15 +30,12 @@ function LoginPage() {
         };
 
         try {
-            const response = await axios.post("https://mojcv-production-8561.up.railway.app/api/login", data);
+            const response = await axios.post("https://0.0.0.0:8080/api/login", data);
 
             if (response.status === 200) {
                 console.log("API odgovor:", response);
 
-                // Sačuvaj token ako je prisutan
-                window.sessionStorage.setItem('auth_token', response.data.access_token);
-                window.sessionStorage.setItem('auth_name', response.data.user.name);
-
+             
                 // Preusmeri korisnika
                 navigate("/admin");
             }

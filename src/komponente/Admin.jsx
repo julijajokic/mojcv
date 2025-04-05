@@ -14,7 +14,7 @@ function Admin() {
   
     function handleLogout(){ 
    
-        axios.post(`${import.meta.env.APP_URL}/logout`)
+        axios.post('http://0.0.0.0:8080/api/logout')
         
       
       

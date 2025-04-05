@@ -11,13 +11,17 @@
   },
   "deploy": {
     "api": {
-      "startCommand": "php-fpm -D && nginx -g 'daemon off;'",
-      "postDeployCommand": "php artisan config:cache && php artisan config:clear && php artisan migrate --force --working-dir=api && php artisan key:generate --working-dir=api"
+      "builder": "nixpacks",
+      "buildCommand": "composer install --no-dev --optimize-autoloader --working-dir=api",
+      "startCommand": "php api/artisan serve --host=0.0.0.0 --port=8080",
+      "postDeployCommand": "php artisan key:generate --working-dir=api && php artisan migrate --force --working-dir=api && php artisan config:cache --working-dir=api"
+    }
+    
     },
     "/": {
-      "startCommand": "npx serve -s build -l $PORT"
-    }
-  },
+      "startCommand": "npx serve -s build -l 9000"
+    },
+  
   "config": {
     "platform": {
       "php": "8.3"

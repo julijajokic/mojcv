@@ -6,6 +6,7 @@ import {useNavigate } from "react-router-dom";
 
 
 function Admin() {
+    
     const navigate = useNavigate();
     const ArrowButton = ({ text ,customStyle}) =>{
         return<div className="arrow-button" style={{...customStyle}}>{text}</div>
@@ -13,7 +14,7 @@ function Admin() {
   
     function handleLogout(){ 
    
-        axios.post(`${import.meta.env.VITE_API_URL}/logout`, data)
+        axios.post(`${import.meta.env.VITE_API_URL}/logout`)
         
       
       

@@ -27,7 +27,7 @@ function LoginPage() {
             email: userData.email, // Poslati lozinku
         };
 
-        axios.post("https://0.0.0.0:8080/api/login", data)
+        axios.post("=https://mojcv-production-8561.up.railway.app/api/login", data)
             .then(function (response) {
                 console.log("API odgovor:", response);
                 if (response.data.token) { // Proveri da li je token prisutan

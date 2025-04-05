@@ -5,7 +5,7 @@ import Admin from "./komponente/Admin";
 import LoginPage from "./komponente/LoginPage";
 import RegisterPage from "./komponente/RegisterPage";
 const axiosInstance = axios.create({
-  baseURL: 'https://0.0.0.0:8080/api'
+  baseURL: 'https://mojcv-production-8561.up.railway.app'
 });
 function App() {
  

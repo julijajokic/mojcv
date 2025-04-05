@@ -28,7 +28,7 @@ function RegisterPage() {
         };
 
         // Axios post zahtev sa podacima
-        axios.post("https://0.0.0.0:8080/api/register", data)
+        axios.post("=https://mojcv-production-8561.up.railway.app/api/register", data)
             .then(function (response) {
                 console.log(response.data);
                 navigate("/"); // Preusmeri korisnika na početnu stranu nakon registracije

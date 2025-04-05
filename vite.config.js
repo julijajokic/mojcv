@@ -18,7 +18,7 @@ export default defineConfig({
       },
     server: {
         host: '0.0.0.0',  // Omogućava pristup sa drugih uređaja
-        port: 9000,       // Postavlja port na 9000
+        port: 8080,       // Postavlja port na 9000
        
             proxy: {
                 '/api': `http://localhost:8080/api`,  // Pravilno formira URL

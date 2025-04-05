@@ -7,7 +7,6 @@ function LoginPage() {
     const [userData, setUserData] = useState({
         name: "",
         email: "",
-        
     });
 
     let navigate = useNavigate();
@@ -26,9 +25,8 @@ function LoginPage() {
         e.preventDefault();
 
         const data = {
-            
-            name: userData.name, // Poslati lozinku
-            email: userData.email
+            name: userData.name,
+            email: userData.email,
         };
 
         try {
@@ -58,36 +56,41 @@ function LoginPage() {
                         <div className="card-heading"></div>
                         <div className="card-body">
                             <h2 className="title">Log in</h2>
-                            <form onSubmit={handleLogin} >                          
-                                                      
+                            <form onSubmit={handleLogin}>
                                 <div className="input-group">
-                                    <input 
-                                        className="input--style-3" 
-                                        type="name" 
-                                        placeholder="Name" 
+                                    <input
+                                        className="input--style-3"
+                                        type="text" // Promenjeno na "text" jer je to polje za ime
+                                        placeholder="Name"
                                         name="name"
-                                        onInput={handleInput}
+                                        value={userData.name} // Povezivanje sa stanjem
+                                        onChange={handleInput} // Koristi onChange umesto onInput
+                                    />
+                                </div>
+
+                                <div className="input-group">
+                                    <input
+                                        className="input--style-3"
+                                        type="email"
+                                        placeholder="Email"
+                                        name="email"
+                                        value={userData.email} // Povezivanje sa stanjem
+                                        onChange={handleInput} // Koristi onChange umesto onInput
                                     />
                                 </div>
                                 
-                                <div className="input-group">
-                                    <input className="input--style-3" type="email" placeholder="Email" name="email"  onInput={handleInput}/>
-                                </div>
                                 <div className="p-t-10">
                                     <button className="btn btn--pill btn--green" type="submit" id="login" name="login">Submit</button>
                                 </div>
                                 <br/><br/>
-                                <p><a href="/register"  className='tekstForme'>I am new here!</a></p>
-                        </form>
+                                <p><a href="/register" className='tekstForme'>I am new here!</a></p>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-            </div>
-        
     );
-    
+}
 
-    }
 export default LoginPage;
-

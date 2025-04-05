@@ -18,36 +18,41 @@ function RegisterPage() {
 
     let navigate = useNavigate();
 
-    function handleRegister(e) {
-        e.preventDefault();  
+    // Funkcija za registraciju
+async function handleRegister(e) {
+    e.preventDefault();  
 
-        // Kreiranje objekta sa podacima za registrovanje
-        const data = {
-            name: userData.name,
-            email: userData.email,
-        };
+    // Kreiranje objekta sa podacima za registrovanje
+    const data = {
+        name: userData.name,
+        email: userData.email,
+    };
 
-        // Axios post zahtev sa podacima
-        axios.post("https://mojcv-production-8561.up.railway.app/api/register", data)
-            .then(function (response) {
-                console.log(response.data);
-                navigate("/"); // Preusmeri korisnika na početnu stranu nakon registracije
-            })
-            .catch(function (error) {
-                if (error.response) {
-                    // Ako server odgovori sa greškom
-                    console.log(error.response.data);
-                    console.log(error.response.status);
-                    console.log(error.response.headers);
-                } else if (error.request) {
-                    // Ako zahtev nije dobio odgovor
-                    console.log(error.request);
-                } else {
-                    // Ako je došlo do greške u postavljanju zahteva
-                    console.log('Error', error.message);
-                }
-            });
+    try {
+        // Slanje POST zahteva koristeći axios
+        const response = await axios.post("https://mojcv-production-8561.up.railway.app/api/register", data);
+
+        // Provera statusa odgovora
+        if (response.status === 200) { 
+            console.log(response.data);  // Logovanje podataka odgovora
+            navigate("/");  // Preusmeravanje na početnu stranu nakon uspešne registracije
+        }
+    } catch (error) {
+        // Obrada grešaka u slučaju neuspeha
+        if (error.response) {
+            // Ako server odgovori sa greškom (npr. status 400, 500)
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        } else if (error.request) {
+            // Ako zahtev nije dobio odgovor
+            console.log(error.request);
+        } else {
+            // Ako je došlo do greške u postavljanju zahteva
+            console.log('Error', error.message);
+        }
     }
+}
 
     return (
         <div className='register'>

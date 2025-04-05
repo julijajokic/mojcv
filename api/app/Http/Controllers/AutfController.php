@@ -8,14 +8,17 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class AuthController extends Controller
+class AutfController extends Controller
 {
+    
+ 
+    
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:100',
             'email' => 'required|string|max:100|email|unique:users,email',
-            
+            'password' => 'required|string|min:8'
         ]);
     
         if ($validator->fails()) {
@@ -25,49 +28,68 @@ class AuthController extends Controller
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,
-            
+            'password' => Hash::make($request->password)
         ]);
         $user->save();
     
+        $token = $user->createToken('auth_token')->plainTextToken;
+    
         return response()->json([
             'data' => $user,
-            'status' => 200
-        ], 200);
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+            'status'=>200
+        ]);
     }
     
 
+    
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|string',
+            'email' => 'required|email',
+            'password' => 'required|string',
         ]);
     
         if (!Auth::attempt($credentials)) {
             return response()->json(['message' => 'Invalid credentials'], 401);
         }
     
-        $user = User::where('name', $credentials['name'])
-                    ->where('email', $credentials['email'])
-                    ->first();
+        $user = User::where('email', $request['email'])->firstOrFail();
 
-        if (!$user) {
-            return response()->json(['message' => 'Invalid credentials'], 401);
+        if($user->admin==1){
+            $token = $user->createToken($user->email.'_AdminToken',['server:admin'])->plainTextToken;
+
+            $response = [
+                'user' => $user,
+                'access_token' => $token,
+                'token_type' => 'Bearer',
+                'status'=>200,
+                'role'=>'admin'
+            ];
+        }else{
+            $token = $user->createToken('auth_token')->plainTextToken;
+
+            $response = [
+                'user' => $user,
+                'access_token' => $token,
+                'token_type' => 'Bearer',
+                'status'=>200
+            ];
         }
-
-        return response()->json([
-            'data' => $user,
-            'status' => 200
-        ], 200);
+        
+    
+        return response()->json($response);
     }
     
 
     public function logout()
     {
         $user = auth()->user();
-        // Ovde bi trebalo dodati logiku za revokaciju tokena ako se koristi API autentifikacija.
-        $response = ['message' => 'Uspešno ste se izlogovali!', 'data' => null, 'status' => 200];
-        
+        $user->tokens()->delete();
+
+        $response = [        'message' => 'Uspešno ste se izlogovali!',        'data' => null,'status'=>200    ];
+
         return response()->json($response);
     }
 }

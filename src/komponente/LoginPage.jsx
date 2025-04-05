@@ -26,8 +26,9 @@ function LoginPage() {
         e.preventDefault();
 
         const data = {
-            email: userData.email,
-            password: userData.password, // Poslati lozinku
+            
+            name: userData.name, // Poslati lozinku
+            email: userData.email
         };
 
         try {

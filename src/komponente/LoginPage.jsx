@@ -6,10 +6,9 @@ import { useNavigate } from 'react-router-dom';
 function LoginPage() {
     const [userData, setUserData] = useState({
         name: "",
-        email: "",
+        email: "",  // Dodano polje za lozinku
     });
 
-    // Funkcija za ažuriranje stanja na osnovu unosa
     function handleInput(e) {
         setUserData({
             ...userData,
@@ -19,26 +18,23 @@ function LoginPage() {
 
     let navigate = useNavigate();
 
-    // Funkcija za slanje login podataka
     function handleLogin(e) {
-        e.preventDefault();  
+        e.preventDefault();
 
         const data = {
             name: userData.name,
-            email: userData.email,
+            email: userData.email, // Poslati lozinku
         };
 
-        // Axios POST zahtev za login
-        axios.post('/api/login', data)
+        axios.post(`${import.meta.env.VITE_API_URL}/login`, data)
             .then(function (response) {
                 console.log("API odgovor:", response);
-                if (response.data.status === 200) {
-                    // Možeš da sačuvaš podatke o korisniku, ako je potrebno (npr. auth_token)
-                    console.log(response.data);
+                if (response.data.token) { // Proveri da li je token prisutan
+                    // Sačuvaj token
+                    // localStorage.setItem('auth_token', response.data.token);
 
-                    
-                        navigate("/"); // Preusmeri na početnu stranu
-                    
+                    // Preusmeri korisnika
+                    navigate("/admin");
                 } else {
                     alert("Login neuspešan");
                 }
@@ -57,14 +53,14 @@ function LoginPage() {
                         <div className="card-heading"></div>
                         <div className="card-body">
                             <h2 className="title">Log in</h2>
-                            <form onSubmit={handleLogin}>                          
+                            <form onSubmit={handleLogin}>
                                 <div className="input-group">
                                     <input 
                                         className="input--style-3" 
-                                        type="text" // Ispravljeno: koristi "text" umesto "name"
+                                        type="name"  // Ispravljeno: koristi "email" umesto "text"
                                         placeholder="Name" 
                                         name="name"
-                                        value={userData.name} // Kontrolisano polje
+                                        value={userData.name}
                                         onChange={handleInput} 
                                     />
                                 </div>
@@ -72,10 +68,10 @@ function LoginPage() {
                                 <div className="input-group">
                                     <input 
                                         className="input--style-3" 
-                                        type="email" 
+                                        type="email"  // Dodano polje za lozinku
                                         placeholder="Email" 
-                                        name="email" 
-                                        value={userData.email} // Kontrolisano polje
+                                        name="email"
+                                        value={userData.email}
                                         onChange={handleInput} 
                                     />
                                 </div>
@@ -95,3 +91,4 @@ function LoginPage() {
 }
 
 export default LoginPage;
+

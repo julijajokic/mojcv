@@ -13,7 +13,7 @@ function Admin() {
   
     function handleLogout(){ 
    
-        axios.post('/api/logout', data)
+        axios.post(`${import.meta.env.VITE_API_URL}/logout`, data)
         
       
       

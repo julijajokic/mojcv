@@ -28,7 +28,7 @@ function RegisterPage() {
         };
 
         // Axios post zahtev sa podacima
-        axios.post('/api/register', data)
+        axios.post(`${import.meta.env.VITE_API_URL}/register`, data)
             .then(function (response) {
                 console.log(response.data);
                 navigate("/"); // Preusmeri korisnika na početnu stranu nakon registracije

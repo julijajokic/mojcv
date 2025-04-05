@@ -2,10 +2,8 @@
 FROM php:8.3-fpm
 
 # Ažuriramo paketne izvore i instaliramo Nginx, curl i druge potrebne biblioteke
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y nginx curl && \
-    apt-get clean
+RUN apt-get update && apt-get upgrade -y && apt-get install -y nginx curl
+
 
 # Kopiramo Laravel i React aplikacije u kontejner
 COPY ./api /var/www/api

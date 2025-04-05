@@ -6,46 +6,73 @@ import { useNavigate } from 'react-router-dom';
 function LoginPage() {
     const [userData, setUserData] = useState({
         name: "",
-        email: "",  // Dodano polje za lozinku
+        email: "",
+        
     });
-
-
-    function handleInput(e) {
-        setUserData({
-            ...userData,
-            [e.target.name]: e.target.value,
-        });
-    }
 
     let navigate = useNavigate();
 
-    function handleLogin(e) {
+    // Funkcija za unos podataka
+    function handleInput(e) {
+        const { name, value } = e.target;
+        setUserData({
+            ...userData,
+            [name]: value,
+        });
+    }
+
+    // Funkcija za login
+    async function handleLogin(e) {
         e.preventDefault();
 
         const data = {
-            name: userData.name,
-            email: userData.email, // Poslati lozinku
+            email: userData.email,
+            password: userData.password, // Poslati lozinku
         };
 
-        axios.post("https://mojcv-production-8561.up.railway.app/api/login", data)
-            .then(function (response) {
-                if(response.status===200){
-                console.log("API odgovor:", response);
-                // Proveri da li je token prisutan
-                    // Sačuvaj token
-                    // localStorage.setItem('auth_token', response.data.token);
+        try {
+            const response = await axios.post("https://mojcv-production-8561.up.railway.app/api/login", data);
 
-                    // Preusmeri korisnika
-                    navigate("/admin");
-                }
-               
-                
-            })
-            .catch(function (error) {
-                console.log("Greška:", error);
-                alert("Desila se greška prilikom logovanja");
-            });
+            if (response.status === 200) {
+                console.log("API odgovor:", response);
+
+                // Sačuvaj token ako je prisutan
+                window.sessionStorage.setItem('auth_token', response.data.access_token);
+                window.sessionStorage.setItem('auth_name', response.data.user.name);
+
+                // Preusmeri korisnika
+                navigate("/admin");
+            }
+        } catch (error) {
+            console.log("Greška:", error);
+            alert("Desila se greška prilikom logovanja");
+        }
     }
+
+    return (
+        <div>
+            <form onSubmit={handleLogin}>
+                <input
+                    type="name"
+                    name="name"
+                    placeholder="Name"
+                    value={userData.name}
+                    onChange={handleInput}
+                />
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={userData.email}
+                    onChange={handleInput}
+                />
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    );
+}
+
+
 
     return (
         <div className='login'>

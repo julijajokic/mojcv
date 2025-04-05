@@ -12,28 +12,16 @@ function Admin() {
         return<div className="arrow-button" style={{...customStyle}}>{text}</div>
     }
   
-    function handleLogout(){ 
-   
-        axiosInstance.post("/api/login", data)
-        
-      
-      
-        .then(function (response) {
-         
+    async function handleLogout() {
+        try {
+          const response = await axios.post("https://mojcv-production-8561.up.railway.app/api/logout");
           console.log(response);
-         
-        alert("Uspesno ste se izlogovali");
+          alert("Uspesno ste se izlogovali");
           navigate('/');
-       
-    
-        })
-        .catch(function (error) {
-         
-          
+        } catch (error) {
           console.log(error);
-          
-    
-        }); 
+          alert("Došlo je do greške pri odjavi.");
+        }
       }
     
     

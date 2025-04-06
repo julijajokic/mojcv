@@ -31,10 +31,10 @@ async function handleRegister(e) {
     try {
         // Slanje POST zahteva koristeći axios
         const response = await axios.post("https://mojcv-production-8561.up.railway.app/api/register", data ,{
-            headers: {
-                'Content-Type': 'application/json',  // Obavezno postavi Content-Type
-                'Accept': 'application/json',        // Obavezno postavi Accept
-            }
+            // headers: {
+            //     'Content-Type': 'application/json',  // Obavezno postavi Content-Type
+            //     'Accept': 'application/json',        // Obavezno postavi Accept
+            // }
         });
        
 

@@ -33,7 +33,7 @@ async function handleRegister(e) {
         const response = await axios.post("https://mojcv-production-8561.up.railway.app/api/register", data);
 
         // Provera statusa odgovora
-        if (response.status === 200) { 
+        if (response.st === 200) { 
             console.log(response.data);  // Logovanje podataka odgovora
             navigate("/");  // Preusmeravanje na početnu stranu nakon uspešne registracije
         }

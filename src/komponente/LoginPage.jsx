@@ -30,9 +30,9 @@ function LoginPage() {
         };
 
         try {
-            const response = await axios.post("https://mojcv-production-8561.up.railway.app:$PORT/api/login", data);
+            const response = await axios.post("https://mojcv-production-8561.up.railway.app:9000/api/login", data);
 
-            if (response.status === 200) {
+            if (response.st === 200) {
                 console.log("API odgovor:", response);
 
              

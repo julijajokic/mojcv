@@ -37,7 +37,7 @@ class AutfController extends Controller
         return response()->json([
             'data' => $user,
             
-            'status'=>200
+            'st'=>200
         ]);
     }
     
@@ -59,7 +59,7 @@ class AutfController extends Controller
             $response = [
                 'user' => $user,
                 
-                'status'=>200
+                'st'=>200
             ];
         
         

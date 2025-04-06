@@ -34,12 +34,16 @@ class AutfController extends Controller
     
        
     
-        return response()->json([
-            'data' => $user,
+        $response=[
+            'user' => $user,
             
             'status'=>200
-        ]);
+        ];
+
+        return response()->json($response)->header('Content-Type', 'application/json');
     }
+
+
     
 
     
@@ -64,7 +68,7 @@ class AutfController extends Controller
         
         
     
-        return response()->json($response);
+        return response()->json($response)->header('Content-Type', 'application/json');
     }
     
 
@@ -75,6 +79,6 @@ class AutfController extends Controller
 
         $response = [        'message' => 'Uspešno ste se izlogovali!',        'data' => null,'status'=>200    ];
 
-        return response()->json($response);
+        return response()->json($response)->header('Content-Type', 'application/json');;
     }
 }

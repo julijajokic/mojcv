@@ -43,7 +43,7 @@ function LoginPage() {
 
              
                 // Preusmeri korisnika
-                navigate("/admin");
+                navigate("https://mojcv-production-8561.up.railway.app/admin");
             }
         } catch (error) {
             console.log("Greška:", error);

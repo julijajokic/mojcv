@@ -22,7 +22,7 @@ function App() {
           <Route   path="/"  element={<LoginPage  />}/>
           <Route   path="/register" element={<RegisterPage />}/>
 
-          <Route   path="/admin"  element={<Admin/>}/>
+          <Route   path="https://mojcv-production-8561.up.railway.app/admin"  element={<Admin/>}/>
        
           
             

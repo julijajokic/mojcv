@@ -30,7 +30,13 @@ async function handleRegister(e) {
 
     try {
         // Slanje POST zahteva koristeći axios
-        const response = await axios.post("https://mojcv-production-8561.up.railway.app/api/register", data);
+        const response = await axios.post("https://mojcv-production-8561.up.railway.app/api/register", data{
+            headers: {
+                'Content-Type': 'application/json',  // Obavezno postavi Content-Type
+                'Accept': 'application/json',        // Obavezno postavi Accept
+            }
+        });
+       
 
         // Provera statusa odgovora
         if (response.data.status === 200) { 

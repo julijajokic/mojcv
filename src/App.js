@@ -5,7 +5,7 @@ import Admin from "./komponente/Admin";
 import LoginPage from "./komponente/LoginPage";
 import RegisterPage from "./komponente/RegisterPage";
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:$PORT'
+  baseURL: 'http://localhost:80'
 });
 function App() {
  

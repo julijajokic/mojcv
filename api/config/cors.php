@@ -5,7 +5,7 @@ return [
     
     'allowed_methods' => ['*'],  // Dozvoljava sve HTTP metode (GET, POST, PUT, DELETE).
     
-    'allowed_origins' => ['https://mojcv-production-8561.up.railway.app'],  // Ovde stavite URL vašeg frontend-a.
+    'allowed_origins' => ['http://localhost:9000'],  // Ovde stavite URL vašeg frontend-a.
     
     'allowed_origins_patterns' => [],
 

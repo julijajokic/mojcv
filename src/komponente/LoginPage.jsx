@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import './RegisterPageStyle.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+const axiosInstance = axios.create({
+    baseURL: process.env.REACT_APP_API_URL
+  });
 function LoginPage() {
     const [userData, setUserData] = useState({
         name: "",
@@ -30,7 +32,7 @@ function LoginPage() {
         };
 
         try {
-            const response = await axios.post("http://localhost:80/api/login" ,data,{
+            const response =await axiosInstance.post('/api/login',data,{
             headers: {
                 'Content-Type': 'application/json',  
                 'Accept': 'application/json',        

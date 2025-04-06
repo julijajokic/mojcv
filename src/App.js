@@ -5,7 +5,7 @@ import Admin from "./komponente/Admin";
 import LoginPage from "./komponente/LoginPage";
 import RegisterPage from "./komponente/RegisterPage";
 const axiosInstance = axios.create({
-  baseURL: 'https://mojcv-production-8561.up.railway.app'
+  baseURL: 'http://localhost:9000'
 });
 function App() {
  
@@ -22,7 +22,7 @@ function App() {
           <Route   path="/"  element={<LoginPage  />}/>
           <Route   path="/register" element={<RegisterPage />}/>
 
-          <Route   path="https://mojcv-production-8561.up.railway.app/admin"  element={<Admin/>}/>
+          <Route   path="/admin"  element={<Admin/>}/>
        
           
             

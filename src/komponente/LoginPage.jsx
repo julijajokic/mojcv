@@ -30,7 +30,7 @@ function LoginPage() {
         };
 
         try {
-            const response = await axios.post("https://mojcv-production-8561.up.railway.app/api/login" ,data,{
+            const response = await axios.post("http://localhost:9000/api/login" ,data,{
             headers: {
                 'Content-Type': 'application/json',  
                 'Accept': 'application/json',        
@@ -43,7 +43,7 @@ function LoginPage() {
 
              
                 // Preusmeri korisnika
-                navigate("https://mojcv-production-8561.up.railway.app/admin");
+                navigate("/admin");
             }
         } catch (error) {
             console.log("Greška:", error);

@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://mojcv-production-8561.up.railway.app'],
+    'allowed_origins' => ['https://mojcv-production-8561.up.railway.app:8080'],
 
     'allowed_origins_patterns' => [],
 

@@ -15,21 +15,15 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    
+        'supports_credentials' => true,
+        'allowed_origins' => ['https://mojcv-production-8561.up.railway.app'],
+        'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        'allowed_headers' => ['Content-Type', 'Authorization'],
+        'exposed_headers' => [],
+        'max_age' => 0,
+        'hosts' => [],
+    ];
+    
 
-    'allowed_methods' => ['*'],
-
-    'allowed_origins' => ['*'],
-
-    'allowed_origins_patterns' => [],
-
-    'allowed_headers' => ['*'],
-
-    'exposed_headers' => [],
-
-    'max_age' => 0,
-
-    'supports_credentials' => true,
-
-];
 

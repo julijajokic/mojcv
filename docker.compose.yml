@@ -31,7 +31,7 @@ services:
       MYSQL_ROOT_PASSWORD: tQVoZIIkPBsBDIVmMHmUeCKFdCfJflKw
       MYSQL_DATABASE: railway
     ports:
-      - "3306:3306"
+      - 35641 ":35641 "
     networks:
       - app-network
 

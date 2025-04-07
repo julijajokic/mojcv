@@ -21,6 +21,8 @@ RUN composer install --no-dev --optimize-autoloader
 # Ako koristiš Docker Compose za pokretanje, bolje je da se ovo radi u ENTRYPOINT skripti
 RUN php artisan config:clear
 RUN php artisan cache:clear
+RUN php artisan route:clear
+RUN php artisan view:clear
 
 # Setuj dozvole
 RUN chmod -R 775 storage bootstrap/cache

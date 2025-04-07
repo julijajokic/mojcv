@@ -25,7 +25,7 @@ services:
     depends_on:
       - backend
     environment:
-      VITE_BACKEND_URL: http://backend:8080  # Komunikacija sa backend-om
+      VITE_BACKEND_URL: "https://mojcv-production-8561.up.railway.app:8080  # Komunikacija sa backend-om
 
 networks:
   app-network:

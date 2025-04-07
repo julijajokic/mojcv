@@ -25,7 +25,7 @@ services:
     depends_on:
       - backend
     environment:
-      VITE_BACKEND_URL: "https://mojcv-production-8561.up.railway.app/api" 
+      VITE_BACKEND_URL: "https://mojcv-production-8561.up.railway.app:8080/api" 
 
 networks:
   app-network:

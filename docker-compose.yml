@@ -3,7 +3,7 @@ services:
     build:
       context: ./api  # putanja do backend foldera
     ports:
-      - "8080:8080"
+      - "8000:8000"
     networks:
       - app-network
     environment:
@@ -24,7 +24,7 @@ services:
     depends_on:
       - backend
     environment:
-      VITE_BACKEND_URL: "https://mojcv-production-8561.up.railway.app:8080/api"
+      VITE_BACKEND_URL: "http://localhost:8000/api"
 
   nginx:
     image: nginx:latest

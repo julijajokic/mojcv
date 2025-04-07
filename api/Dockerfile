@@ -29,7 +29,7 @@ RUN php artisan view:clear
 RUN chmod -R 775 storage bootstrap/cache
 
 # Pokreni Laravel
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8080"]
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
 
 
 

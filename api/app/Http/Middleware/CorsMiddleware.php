@@ -8,6 +8,11 @@ class CorsMiddleware
 {
     public function handle(Request $request, Closure $next)
     {
+        // If the request is an OPTIONS request, we don't need to go further
+        if ($request->getMethod() === "OPTIONS") {
+            return response()->json([], 200);
+        }
+
         $response = $next($request);
 
         // Add CORS headers
@@ -19,3 +24,4 @@ class CorsMiddleware
         return $response;
     }
 }
+

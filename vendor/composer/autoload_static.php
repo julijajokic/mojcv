@@ -64,6 +64,8 @@ class ComposerStaticInitc7021c876fd7d8e50d7f62c22380dc60
         'L' => 
         array (
             'Laravel\\Ui\\' => 11,
+            'Laravel\\SerializableClosure\\' => 28,
+            'Laravel\\Sanctum\\' => 16,
             'Laravel\\Prompts\\' => 16,
         ),
         'I' => 
@@ -76,6 +78,7 @@ class ComposerStaticInitc7021c876fd7d8e50d7f62c22380dc60
             'Illuminate\\Foundation\\Auth\\' => 27,
             'Illuminate\\Filesystem\\' => 22,
             'Illuminate\\Events\\' => 18,
+            'Illuminate\\Database\\' => 20,
             'Illuminate\\Contracts\\' => 21,
             'Illuminate\\Container\\' => 21,
             'Illuminate\\Console\\' => 19,
@@ -190,6 +193,14 @@ class ComposerStaticInitc7021c876fd7d8e50d7f62c22380dc60
         array (
             0 => __DIR__ . '/..' . '/laravel/ui/src',
         ),
+        'Laravel\\SerializableClosure\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/serializable-closure/src',
+        ),
+        'Laravel\\Sanctum\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/sanctum/src',
+        ),
         'Laravel\\Prompts\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/prompts/src',
@@ -208,9 +219,9 @@ class ComposerStaticInitc7021c876fd7d8e50d7f62c22380dc60
         ),
         'Illuminate\\Support\\' => 
         array (
-            0 => __DIR__ . '/..' . '/illuminate/macroable',
+            0 => __DIR__ . '/..' . '/illuminate/collections',
             1 => __DIR__ . '/..' . '/illuminate/conditionable',
-            2 => __DIR__ . '/..' . '/illuminate/collections',
+            2 => __DIR__ . '/..' . '/illuminate/macroable',
             3 => __DIR__ . '/..' . '/illuminate/support',
         ),
         'Illuminate\\Pipeline\\' => 
@@ -228,6 +239,10 @@ class ComposerStaticInitc7021c876fd7d8e50d7f62c22380dc60
         'Illuminate\\Events\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/events',
+        ),
+        'Illuminate\\Database\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/database',
         ),
         'Illuminate\\Contracts\\' => 
         array (

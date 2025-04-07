@@ -1,6 +1,8 @@
 {
     "require": {
-      "laravel/ui": "^4.6"
+      "laravel/ui": "^4.6",
+        "laravel/sanctum": "^4.0",
+        "fruitcake/laravel-cors": "^2.0"
     },
     "config": {
       "platform": {
@@ -9,6 +11,3 @@
     }
     
   }
-  
-      
-

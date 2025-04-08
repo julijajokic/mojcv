@@ -17,7 +17,7 @@ return [
 
     'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', sprintf(
         '%s%s',
-        'mojcv-production-8561.up.railway.app,mojcv-production-8561.up.railway.app:9000,mojcv-production-8561.up.railway.app,::1,example.com',
+        'mojcv-production-8561.up.railway.app,mojcv-production-8561.up.railway.app:9000,mojcv-production-8561.up.railway.app,mojcv-production-8561.up.railway.app:8080,::1',
         Sanctum::currentApplicationUrlWithPort()
     ))),
 

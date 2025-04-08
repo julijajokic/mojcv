@@ -14,7 +14,7 @@ function Admin() {
   
     async function handleLogout() {
         try {
-          const response = await axios.post("http://localhost:9000/api/logout");
+          const response = await axios.post("https://mojcv-production-8561.up.railway.app/api/logout");
           console.log(response);
           alert("Uspesno ste se izlogovali");
           navigate('/');

@@ -24,7 +24,7 @@ services:
     depends_on:
       - backend
     environment:
-      VITE_BACKEND_URL: "http://localhost:9000/api"
+      VITE_BACKEND_URL: "https://mojcv-production-8561.up.railway.app/api"
 
   nginx:
     image: nginx:latest

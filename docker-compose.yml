@@ -1,3 +1,5 @@
+version: '3'
+
 services:
   backend:
     build:
@@ -23,11 +25,11 @@ services:
       - app-network
     depends_on:
       - backend
-    environment:
-      VITE_BACKEND_URL: "https://mojcv-production-8561.up.railway.app:8080/api"  # Povezivanje sa backend-om direktno
+   
 
 networks:
   app-network:
     driver: bridge
+
 
 

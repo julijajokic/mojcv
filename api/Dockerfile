@@ -27,7 +27,9 @@ RUN php artisan view:clear
 RUN chmod -R 775 storage bootstrap/cache
 
 # Pokreni PHP-FPM
-CMD php-fpm -D
+CMD ["php-fpm", "-D"]
+
+
 
 
 

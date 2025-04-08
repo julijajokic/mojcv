@@ -3,7 +3,6 @@ FROM php:8.2-fpm
 # Instaliraj sistemske pakete i PHP ekstenzije
 RUN apt-get update && apt-get install -y \
     libpng-dev libonig-dev libxml2-dev zip unzip curl git default-mysql-client \
-    nginx \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
 # Instaliraj Composer
@@ -27,11 +26,9 @@ RUN php artisan view:clear
 # Setuj dozvole
 RUN chmod -R 775 storage bootstrap/cache
 
-# Kopiraj nginx konfiguraciju (pretpostavljamo da je fajl u tvom lokalnom projektu)
-COPY ./nginx/default.conf /etc/nginx/sites-available/default
+# Pokreni PHP-FPM
+CMD php-fpm -D
 
-# Pokreni nginx i php-fpm
-CMD php-fpm -D && nginx -g 'daemon off;'
 
 
 

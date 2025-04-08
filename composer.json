@@ -1,13 +1,14 @@
 {
-    "require": {
+  "require": {
       "laravel/ui": "^4.6",
-        "laravel/sanctum": "^4.0",
-        "fruitcake/laravel-cors": "^2.0"
-    },
-    "config": {
+      "fruitcake/laravel-cors": "^2.0",
+      "laravel/sanctum": "^4.0",
+      "illuminate/contracts": "^12.0",
+      "php": "^8.3"
+  },
+  "config": {
       "platform": {
-        "php": "8.3"
+          "php": "8.3"
       }
-    }
-    
   }
+}

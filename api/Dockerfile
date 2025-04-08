@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
 # Instaliraj Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Setuj radni direktorijum
 WORKDIR /var/www
@@ -18,12 +18,14 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader
 
 # Generiši aplikacioni ključ
+RUN php artisan key:generate
 RUN php artisan config:clear
 RUN php artisan cache:clear
 RUN php artisan route:clear
 RUN php artisan view:clear
 
 # Setuj dozvole
+RUN chown -R www-data:www-data storage bootstrap/cache
 RUN chmod -R 775 storage bootstrap/cache
 
 # Pokreni PHP-FPM

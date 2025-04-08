@@ -3,7 +3,7 @@ services:
     build:
       context: ./api  # putanja do backend foldera
     ports:
-      - "8000:8000"
+      - "8080:8080"
     networks:
       - app-network
     environment:

@@ -31,7 +31,8 @@ RUN chmod -R 775 storage bootstrap/cache
 COPY ./nginx/default.conf /etc/nginx/sites-available/default
 
 # Pokreni nginx i php-fpm
-CMD service php8.2-fpm start && nginx -g 'daemon off;'
+CMD php-fpm -D && nginx -g 'daemon off;'
+
 
 
 

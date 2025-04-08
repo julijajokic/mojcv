@@ -18,7 +18,7 @@ class CorsMiddleware
         // Add CORS headers
         // If you have multiple front-end domains, add them here
         $allowedOrigins = [
-            'http://localhost:9000',  // Add your frontend domain here
+            // 'http://localhost:9000',  // Add your frontend domain here
             'https://mojcv-production-8561.up.railway.app', // or any other frontend domains you want to allow
         ];
 

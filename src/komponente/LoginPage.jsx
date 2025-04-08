@@ -32,7 +32,7 @@ function LoginPage() {
         };
 
         try {
-            const response =await axios.post('http://0.0.0.0:8080/api/login',data,{
+            const response =await axios.post('http://localhost:8080/api/login',data,{
             headers: {
                 'Content-Type': 'application/json',  
                 'Accept': 'application/json',        

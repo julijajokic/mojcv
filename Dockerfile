@@ -1,20 +1,21 @@
-# Frontend Build
 FROM node:20-alpine as build
 
 WORKDIR /app
 
+# Kopiraj sve fajlove u radni direktorijum
 COPY . .
 
+# Instaliraj zavisnosti i izgradi frontend
 RUN npm install
 RUN npm run build
 
-# Final Stage
+# Final Stage: Nginx sa podrazumevanom konfiguracijom
 FROM nginx:alpine
 
+# Kopiraj izgrađene fajlove u Nginx
 COPY --from=build /app/build /usr/share/nginx/html
-
-COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Nginx server automatski startuje kada se kontejner pokrene
 CMD ["nginx", "-g", "daemon off;"]
+
 

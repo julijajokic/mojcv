@@ -32,7 +32,7 @@ function LoginPage() {
         };
 
         try {
-            const response =await axios.post('https://shuttle.proxy.rlwy.net:49039/api/login',data,{
+            const response =await axios.post('https://crossover.proxy.rlwy.net:29648/api/login',data,{
             headers: {
                 'Content-Type': 'application/json',  
                 'Accept': 'application/json',        

@@ -30,7 +30,7 @@ async function handleRegister(e) {
 
     try {
         // Slanje POST zahteva koristeći axios
-        const response = await axios.post("http://127.0.0.1:8000/api/register", data ,{
+        const response = await axios.post("https://crossover.proxy.rlwy.net:29648/api/register", data ,{
             // headers: {
             //     'Content-Type': 'application/json',  // Obavezno postavi Content-Type
             //     'Accept': 'application/json',        // Obavezno postavi Accept

@@ -11,5 +11,9 @@ Route::post("/logout",[AutfController::class,'logout']);
 Route::get('/status', function () {
     return response()->json(['status' => 'OK']);
 });
+Route::get('/test', function () {
+    return response()->json(['msg' => 'API je živ']);
+});
+
 
 

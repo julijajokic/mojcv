@@ -5,7 +5,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::post("/register", [AutfController::class, 'register']);
+Route::post("/login",[AutfController::class,'login']);
+Route::post("/logout",[AutfController::class,'logout']);
 
+Route::get('/status', function () {
+    return response()->json(['status' => 'OK']);
+});
+Route::get('/test', function () {
+    return response()->json(['msg' => 'API je živ']);
+});
 // Auth::routes();
 
 

@@ -14,7 +14,7 @@ function Admin() {
   
     async function handleLogout() {
         try {
-          const response = await axios.post("https://mojcv-production.up.railway.app/api/logout");
+          const response = await axios.post("https://centerbeam.proxy.rlwy.net:26927/api/logout");
           console.log(response);
           alert("Uspesno ste se izlogovali");
           navigate('/');

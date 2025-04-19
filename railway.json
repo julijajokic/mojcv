@@ -13,7 +13,7 @@
     "api": {
       "builder": "nixpacks",
       "buildCommand": "composer install --no-dev --optimize-autoloader --working-dir=api",
-        "startCommand": "php api/artisan serve --host=0.0.0.0 --port=8000",
+        "startCommand": "php api/artisan serve --host=mojcv-production.up.railway.app --port=8000",
      
       "postDeployCommand": "php artisan key:generate --working-dir=api && php artisan migrate --force --working-dir=api && php artisan config:cache --working-dir=api"
     }

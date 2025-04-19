@@ -50,7 +50,7 @@ class AutfController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'name' => 'required|name',
+            'name' => 'required|string',
             'email' => 'required|string',
         ]);
     

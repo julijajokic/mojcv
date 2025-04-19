@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::post("/register", [AutfController::class, 'register']);
 Route::post("/login",[AutfController::class,'login']);
 Route::post("/logout",[AutfController::class,'logout']);

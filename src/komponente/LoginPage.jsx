@@ -32,7 +32,7 @@ function LoginPage() {
         };
 
         try {
-            const response =await axios.post('https://metro.proxy.rlwy.net:8000/api/login',data,{
+            const response =await axios.post('http://127.0.0.1:8000/api/login',data,{
             headers: {
                 'Content-Type': 'application/json',  
                 'Accept': 'application/json',        

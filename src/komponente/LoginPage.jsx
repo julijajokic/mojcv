@@ -32,7 +32,7 @@ function LoginPage() {
         };
 
         try {
-            const response =await axios.post('https://mojcv-production.up.railway.app:8000/api/login',data,{
+            const response =await axios.post('https://mojcv-production.up.railway.app/api/login',data,{
             headers: {
                 'Content-Type': 'application/json',  
                 'Accept': 'application/json',        

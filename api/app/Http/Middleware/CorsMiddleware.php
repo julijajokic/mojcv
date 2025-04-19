@@ -13,6 +13,8 @@ class CorsMiddleware
     {
         // Definiši listu dozvoljenih domena
         $allowedDomains = [
+            'http://localhost:3000',
+            'http://127.0.0.1:3000',
             'https://mojcv-production.up.railway.app', // Tvoj frontend domen
             // Dodaj još domena ako je potrebno
         ];

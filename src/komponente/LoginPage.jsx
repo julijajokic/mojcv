@@ -73,10 +73,10 @@ function LoginPage() {
                                 <div className="input-group">
                                     <input
                                         className="input--style-3"
-                                        type="email"
-                                        placeholder="Email"
+                                        type="password"
+                                        placeholder="Password"
                                         name="email"
-                                        value={userData.email} // Povezivanje sa stanjem
+                                        value={userData.password} // Povezivanje sa stanjem
                                         onChange={handleInput} // Koristi onChange umesto onInput
                                     />
                                 </div>

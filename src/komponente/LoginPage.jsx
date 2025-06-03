@@ -75,7 +75,7 @@ function LoginPage() {
                                         className="input--style-3"
                                         type="password"
                                         placeholder="Password"
-                                        name="email"
+                                        name="password"
                                         value={userData.password} // Povezivanje sa stanjem
                                         onChange={handleInput} // Koristi onChange umesto onInput
                                     />

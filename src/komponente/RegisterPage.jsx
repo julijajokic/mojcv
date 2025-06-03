@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function RegisterPage() {
     const [userData, setUserData] = useState({
         name: "",
-        email: "",
+        password: "",
     });
 
     function handleInput(e) {

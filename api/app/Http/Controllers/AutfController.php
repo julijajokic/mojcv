@@ -8,40 +8,35 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class AutfController extends Controller
-{
+class AutfController extends Controller {
+
     
  
+    
+   
     
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:100',
-            'email' => 'required|string|max:100|email|unique:users,email',
-        
+            'password' => 'required|string|min:6|max:100',
         ]);
     
-        // if ($validator->fails()) {
-        //     return response()->json(['errors' => $validator->errors()], 400);
-        // }
+        if ($validator->fails()) {
+            return response('Greška u validaciji.', 400);
+        }
     
         $user = new User([
             'name' => $request->name,
-            'email' => $request->email,
-            
+            'password' => Hash::make($request->password),
         ]);
         $user->save();
     
-       
-    
-        $response=[
-            'user' => $user,
-            
-            'status'=>200
-        ];
-
-        return response()->json($response)->header('Content-Type', 'application/json');
+        return response($user->name, 200);
     }
+    
+        
+        
 
 
     
@@ -49,27 +44,29 @@ class AutfController extends Controller
     
     public function login(Request $request)
     {
-        $credentials = $request->validate([
+        // Validacija ulaznih podataka
+        $request->validate([
             'name' => 'required|string',
-            'email' => 'required|string',
+            'password' => 'required|string',
         ]);
     
-      
+        // Pronađi korisnika po imenu (ili email, zavisi šta koristiš)
+        $user = User::where('name', $request->name)->first();
     
-        $user = User::where('email', $request['email'])->firstOrFail();
-
-       
-
-            $response = [
-                'user' => $user,
-                
-                'status'=>200
-            ];
-        
-        
+        if (!$user) {
+            return response('Korisnik nije pronađen.', 404);
+        }
     
-        return response()->json($response)->header('Content-Type', 'application/json');
+        // Proveri lozinku (unesena vs. heširana u bazi)
+        if (!Hash::check($request->password, $user->password)) {
+            return response('Pogrešna lozinka.', 401);
+        }
+    
+        // Ako je sve ok, vrati npr. ime korisnika kao potvrdu
+        return response( $user->name, 200);
     }
+    
+   
     
 
     public function logout()

@@ -25,7 +25,7 @@ async function handleRegister(e) {
     // Kreiranje objekta sa podacima za registrovanje
     const data = {
         name: userData.name,
-        email: userData.email,
+        password: userData.password,
     };
 
     try {
@@ -39,7 +39,7 @@ async function handleRegister(e) {
        
 
         // Provera statusa odgovora
-        if (response.data.status === 200) { 
+        if (response.status === 200) { 
             console.log(response.data);  // Logovanje podataka odgovora
             navigate("/");  // Preusmeravanje na početnu stranu nakon uspešne registracije
         }
@@ -84,11 +84,11 @@ async function handleRegister(e) {
                                 <div className="input-group">
                                     <input 
                                         className="input--style-3" 
-                                        type="email" 
-                                        placeholder="Email" 
-                                        name="email" 
+                                        type="password" 
+                                        placeholder="Password" 
+                                        name="password" 
                                         required 
-                                        value={userData.email} 
+                                        value={userData.password} 
                                         onChange={handleInput} 
                                     />
                                 </div>

@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
 function LoginPage() {
     const [userData, setUserData] = useState({
         name: "",
-        email: "",
+        password: "",
     });
 
     let navigate = useNavigate();
@@ -28,19 +28,16 @@ function LoginPage() {
 
         const data = {
             name: userData.name,
-            email: userData.email,
+            password: userData.password,
         };
 
         try {
             const response =await axios.post('https://mojcv-production.up.railway.app/api/login',data,{
-            headers: {
-                'Content-Type': 'application/json',  
-                'Accept': 'application/json',        
-            }
+         
         });
         
 
-            if (response.data.status === 200) {
+            if (response.status === 200) {
                 console.log("API odgovor:", response);
 
              

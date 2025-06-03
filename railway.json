@@ -20,7 +20,7 @@
     
     },
     "/": {
-      "startCommand": "npx serve -s build -l 3000"
+      "startCommand": "npx serve -s build -l 9000"
     },
   
   "config": {

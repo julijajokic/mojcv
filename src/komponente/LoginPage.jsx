@@ -27,8 +27,8 @@ function LoginPage() {
            .post('https://mojcv-production.up.railway.app/api/login',data)
          
               .then((res)=>{  
-            console.log(res.data);
-            if(res.data.status===200){
+            console.log(res);
+            if(res.status===200){
 
              
                 // Preusmeri korisnika

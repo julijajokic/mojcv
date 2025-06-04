@@ -4,61 +4,48 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
-    const [userData, setUserData] = useState({
-        name: "",
-        password: "",
+    const [userData,setUserData]=useState({
+      name:"",
+       password:""
     });
 
     function handleInput(e) {
-        setUserData({
-            ...userData,
-            [e.target.name]: e.target.value,
-        });
-    }
+   
+        let newUserData = userData;  
+        newUserData[e.target.name]=e.target.value;
+        console.log(newUserData);
+       
+        setUserData(newUserData); 
+        
+         }
 
     let navigate = useNavigate();
-
-    // Funkcija za registraciju
-async function handleRegister(e) {
-    e.preventDefault();  
-
-    // Kreiranje objekta sa podacima za registrovanje
-    const data = {
-        name: userData.name,
-        password: userData.password,
-    };
-
-    try {
-        // Slanje POST zahteva koristeći axios
-        const response = await axios.post("https://mojcv-production.up.railway.app/api/register", data ,{
-            // headers: {
-            //     'Content-Type': 'application/json',  // Obavezno postavi Content-Type
-            //     'Accept': 'application/json',        // Obavezno postavi Accept
-            // }
-        });
-       
-
-        // Provera statusa odgovora
-        if (response.status === 200) { 
-            console.log(response.data);  // Logovanje podataka odgovora
-            navigate("/");  // Preusmeravanje na početnu stranu nakon uspešne registracije
-        }
-    } catch (error) {
-        // Obrada grešaka u slučaju neuspeha
-        if (error.response) {
-            // Ako server odgovori sa greškom (npr. status 400, 500)
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-        } else if (error.request) {
-            // Ako zahtev nije dobio odgovor
-            console.log(error.request);
-        } else {
-            // Ako je došlo do greške u postavljanju zahteva
-            console.log('Error', error.message);
-        }
+    function handleRegister(e){
+             
+            e.preventDefault();   
+                 axios
+                .post("https://mojcv-production.up.railway.app/api/register", userData )
+                .then((res)=>{  
+                    console.log(res.data);
+                  
+                     navigate("/");
+                })
+                .catch(function (error) {
+                    if (error.response) {
+                      // Request made and server responded
+                      console.log(error.response.data);
+                      console.log(error.response.status);
+                      console.log(error.response.headers);
+                    } else if (error.request) {
+                      // The request was made but no response was received
+                      console.log(error.request);
+                    } else {
+                      // Something happened in setting up the request that triggered an Error
+                      console.log('Error', error.message);
+                    }
+                
+                  });
     }
-}
 
     return (
         <div className='register'>
@@ -75,9 +62,7 @@ async function handleRegister(e) {
                                         type="text" 
                                         placeholder="Name" 
                                         name="name" 
-                                        required 
-                                        value={userData.name} 
-                                        onChange={handleInput} 
+                                        required  onInput={handleInput}
                                     />
                                 </div>
 
@@ -87,9 +72,8 @@ async function handleRegister(e) {
                                         type="password" 
                                         placeholder="Password" 
                                         name="password" 
-                                        required 
-                                        value={userData.password} 
-                                        onChange={handleInput} 
+                                        required onInput={handleInput} 
+                                       
                                     />
                                 </div>
 

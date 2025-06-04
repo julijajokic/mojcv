@@ -6,48 +6,39 @@ const axiosInstance = axios.create({
     baseURL: process.env.REACT_APP_API_URL
   });
 function LoginPage() {
-    const [userData, setUserData] = useState({
-        name: "",
-        password: "",
+      
+    const [userData,setUserData]=useState({
+        name:"",
+        password:""
     });
-
-    let navigate = useNavigate();
-
-    // Funkcija za unos podataka
-    function handleInput(e) {
-        const { name, value } = e.target;
-        setUserData({
-            ...userData,
-            [name]: value,
-        });
+    function handleInput(e){  
+    
+        let newUserData = userData;  
+        newUserData[e.target.name]=e.target.value;
+        console.log(newUserData)
+        setUserData(newUserData); 
     }
+    let navigate = useNavigate();
+    function handleLogin(e){
+      
+        e.preventDefault();   
 
-    // Funkcija za login
-    async function handleLogin(e) {
-        e.preventDefault();
-
-        const data = {
-            name: userData.name,
-            password: userData.password,
-        };
-
-        try {
-            const response =await axios.post('https://mojcv-production.up.railway.app/api/login',data,{
+            axios
+           .post('https://mojcv-production.up.railway.app/api/login',data)
          
-        });
-        
-
-            if (response.status === 200) {
-                console.log("API odgovor:", response);
+              .then((res)=>{  
+            console.log(res.data);
+            if(res.data.status===200){
 
              
                 // Preusmeri korisnika
                 navigate("/admin");
-            }
-        } catch (error) {
-            console.log("Greška:", error);
-            alert("Desila se greška prilikom logovanja");
-        }
+  }
+    
+else{
+    alert("NEUSPESNO");
+}
+});
     }
 
     return (
@@ -65,8 +56,7 @@ function LoginPage() {
                                         type="text" // Promenjeno na "text" jer je to polje za ime
                                         placeholder="Name"
                                         name="name"
-                                        value={userData.name} // Povezivanje sa stanjem
-                                        onChange={handleInput} // Koristi onChange umesto onInput
+                                        onInput={handleInput} // Koristi onChange umesto onInput
                                     />
                                 </div>
 
@@ -76,8 +66,7 @@ function LoginPage() {
                                         type="password"
                                         placeholder="Password"
                                         name="password"
-                                        value={userData.password} // Povezivanje sa stanjem
-                                        onChange={handleInput} // Koristi onChange umesto onInput
+                                        onInput={handleInput}// Koristi onChange umesto onInput
                                     />
                                 </div>
                                 
@@ -94,5 +83,6 @@ function LoginPage() {
         </div>
     );
 }
+
 
 export default LoginPage;

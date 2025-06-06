@@ -44,9 +44,9 @@ class AutfController extends Controller
             return response()->json(['message' => 'Invalid credentials'], 401);
         }
     
-        $user = User::where('password', $request['password'])->firstOrFail();
+        // $user = User::where('password', $request['password'])->firstOrFail();
 
-     
+        $user = Auth::user();
 
         $response = [
                 'user' => $user,

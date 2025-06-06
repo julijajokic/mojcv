@@ -24,7 +24,7 @@ function RegisterPage() {
              
             e.preventDefault();   
                  axios
-                .post("https://mojcv-production.up.railway.app/api/register", userData ,{ withCredentials: true })
+                .post("https://mojcv-production.up.railway.app/api/register", userData )
                 .then((res)=>{  
                     console.log(res.data);
                   
